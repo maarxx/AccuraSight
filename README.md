@@ -2,9 +2,11 @@
 
 This is a mod for the game RimWorld by Ludeon Studios.
 
-Replaces the visible label on ranged weapons to display the Accuracy% rather than the Quality.
+Updates the labels on weapons to show Accuracy% for ranged weapons and DPS for melee weapons.
 
-![AccuraSight Image Preview](./About/Preview.png)
+Enhances sorting options in Merchant windows, and in mods like Moody and Numbers.
+
+<img src=/About/Previews/1.png width=49% /> <img src=/About/Previews/4.png width=49% />
 
 # Table of Contents
 
@@ -19,7 +21,45 @@ Replaces the visible label on ranged weapons to display the Accuracy% rather tha
 
 You'll add the mod. You'll enable the mod. It just works. If you don't like it, disable the mod.
 
-When enabled, the visible label on ranged weapons will display their Accuracy% (at Medium range) instead of their Quality.
+When enabled, the visible labels on weapons will be replaced or updated.
+
+In the main window, when looking at a weapon on the ground, ranged weapons will instead list their Accuracy%, and melee weapons will list their DPS.
+
+![1](./About/Previews/1.png)
+
+We also insert the Accuracy% or DPS into the full text label, visible anywhere, such as the infobox.
+
+<img src=/About/Previews/2.png width=49% /> <img src=/About/Previews/3.png width=49% />
+
+It also means it renders directly onto a pawn's infobox when selected.
+
+<img src=/About/Previews/4.png width=49% /> <img src=/About/Previews/5.png width=49% />
+
+This also means, when you sort a Merchant window by Name, all of your melee weapons are sorted by straight DPS.
+
+![6](./About/Previews/6.png)
+
+and all of your ranged weapons are grouped by type, and then sorted by Accuracy%.
+
+![7](./About/Previews/7.png)
+
+This effect also propagates immediately into mods like Moody or Numbers, with the same result.
+
+Moody will now sort your melee pawns by straight weapon DPS.
+
+<img src=/About/Previews/9_1.png width=49% /> <img src=/About/Previews/9_2.png width=49% />
+
+and Moody will now sort your ranged weapon pawns by type, then by weapon Accuracy%.
+
+<img src=/About/Previews/8_1.png width=49% /> <img src=/About/Previews/8_2.png width=49% />
+
+and Numbers will also behave the same way, and will sort melee pawns by straight weapon DPS.
+
+<img src=/About/Previews/11_1.png width=49% /> <img src=/About/Previews/11_2.png width=49% />
+
+and will sort ranged weapon pawns by type, then by weapon Accuracy%.
+
+<img src=/About/Previews/10_1.png width=49% /> <img src=/About/Previews/10_2.png width=49% />
 
 # Specific Additional Features
 

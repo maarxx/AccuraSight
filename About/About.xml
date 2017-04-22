@@ -4,5 +4,5 @@
   <author>Maarx</author>
   <url>https://github.com/maarxx/AccuraSight/</url>
   <targetVersion>0.16.1393</targetVersion>
-  <description>Weapons are labeled with their Accuracy instead of their Quality.</description>
+  <description>Updates the labels on weapons to show Accuracy% for ranged weapons and DPS for melee weapons.</description>
 </ModMetaData>
