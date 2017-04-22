@@ -35,7 +35,7 @@ namespace AccuraSight
                     GenMapUI.DrawThingLabel(__instance, sAcc);
                     return false;
                 }
-                else if (__instance.def.IsMeleeWeapon && !__instance.def.Equals(ThingDef.Named("WoodLog")))
+                else if (__instance.def.IsMeleeWeapon && !__instance.def.Equals(ThingDef.Named("WoodLog")) && !__instance.def.Equals(ThingDef.Named("Beer")))
                 {
                     float dps = __instance.GetStatValue(StatDefOf.MeleeWeapon_DamageAmount, true) / __instance.GetStatValue(StatDefOf.MeleeWeapon_Cooldown, true);
                     string sDPS = dps.ToString("00.0");
@@ -60,7 +60,7 @@ namespace AccuraSight
                 string sAcc = (accuracy * 100f).ToString("F0") + "%";
                 __result = __result.Insert(__result.IndexOf("("), "(ACC:" + sAcc + ") ");
             }
-            else if (t.def.IsMeleeWeapon && !t.def.Equals(ThingDef.Named("WoodLog")))
+            else if (t.def.IsMeleeWeapon && !t.def.Equals(ThingDef.Named("WoodLog")) && !t.def.Equals(ThingDef.Named("Beer")))
             {
                 float dps = t.GetStatValue(StatDefOf.MeleeWeapon_DamageAmount, true) / t.GetStatValue(StatDefOf.MeleeWeapon_Cooldown, true);
                 string sDPS = dps.ToString("00.0");
