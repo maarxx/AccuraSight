@@ -45,17 +45,17 @@ This effect also propagates immediately into mods like Moody or Numbers, with th
 
 Moody will now sort your melee pawns by straight weapon DPS.
 
-![9_1](./About/Previews/9_1.png) [9_2](./About/Previews/9_2.png)
+![9_1](./About/Previews/9_1.png) ![9_2](./About/Previews/9_2.png)
 
 and Moody will now sort your ranged weapon pawns by type, then by Accuracy%.
 
-![8_1](./About/Previews/8_1.png) [8_2](./About/Previews/8_2.png)
+![8_1](./About/Previews/8_1.png) ![8_2](./About/Previews/8_2.png)
 
 and Numbers will also behave the same way.
 
-![11_1](./About/Previews/11_1.png) [11_2](./About/Previews/11_2.png)
+![11_1](./About/Previews/11_1.png) ![11_2](./About/Previews/11_2.png)
 
-![10_1](./About/Previews/10_1.png) [10_2](./About/Previews/10_2.png)
+![10_1](./About/Previews/10_1.png) ![10_2](./About/Previews/10_2.png)
 
 # Specific Additional Features
 
