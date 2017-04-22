@@ -22,7 +22,7 @@ When enabled, the visible label on ranged weapons will display their Accuracy% (
 
 # Specific Additional Features
 
-There is an additional button that controls whether you want a notification and pause when a drafted pawn finishes walking to their given destination.
+None, as of yet.
 
 # How to Install
 
