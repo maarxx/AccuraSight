@@ -27,11 +27,11 @@ In the main window, when looking at a weapon on the ground, ranged weapons will 
 
 We also insert the Accuracy% or DPS into the full text label, visible anywhere, such as the infobox.
 
-![2](./About/Previews/2.png) ![3](./About/Previews/3.png)
+<img src=/About/Previews/2.png width=49% /> <img src=/About/Previews/3.png width=49% />
 
 It also means it renders directly onto a pawn's infobox when selected.
 
-![4](./About/Previews/4.png) ![5](./About/Previews/5.png)
+<img src=/About/Previews/4.png width=49% /> <img src=/About/Previews/5.png width=49% />
 
 This also means, when you sort a Merchant window by Name, all of your melee weapons are sorted by straight DPS.
 
@@ -45,19 +45,19 @@ This effect also propagates immediately into mods like Moody or Numbers, with th
 
 Moody will now sort your melee pawns by straight weapon DPS.
 
-![9_1](./About/Previews/9_1.png) ![9_2](./About/Previews/9_2.png)
+<img src=/About/Previews/9_1.png width=49% /> <img src=/About/Previews/9_2.png width=49% />
 
-and Moody will now sort your ranged weapon pawns by type, then by Accuracy%.
+and Moody will now sort your ranged weapon pawns by type, then by weapon Accuracy%.
 
-![8_1](./About/Previews/8_1.png) ![8_2](./About/Previews/8_2.png)
+<img src=/About/Previews/8_1.png width=49% /> <img src=/About/Previews/8_2.png width=49% />
 
-and Numbers will also behave the same way, sorting melee pawns by straight DPS.
+and Numbers will also behave the same way, and will sort melee pawns by straight weapon DPS.
 
-![11_1](./About/Previews/11_1.png) ![11_2](./About/Previews/11_2.png)
+<img src=/About/Previews/11_1.png width=49% /> <img src=/About/Previews/11_2.png width=49% />
 
-and sorting ranged weapon pawns by type, then by Accuracy%.
+and will sort ranged weapon pawns by type, then by weapon Accuracy%.
 
-![10_1](./About/Previews/10_1.png) ![10_2](./About/Previews/10_2.png)
+<img src=/About/Previews/10_1.png width=49% /> <img src=/About/Previews/10_2.png width=49% />
 
 # Specific Additional Features
 
