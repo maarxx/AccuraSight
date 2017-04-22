@@ -13,6 +13,7 @@ Replaces the visible label on ranged weapons to display the Accuracy% rather tha
 * [How to Install](#how-to-install)
 * [How to Update](#how-to-update)
 * [Bugs, New Features, and Updates](#bugs-new-features-and-updates)
+* [Credits](#credits)
 
 # Introduction and Explanation
 
@@ -81,3 +82,13 @@ So if you tried updating the master branch, and you tried the beta branch, and y
 You can look here to see if your bug, issue, or suggestion is already present, and add comments if you wish.
 
 If it's not there, look to the right-hand-side, click the green button "New issue", just type a Title, and Leave a comment, and then look below and click the green button "Submit new issue". I will get back to you. Maybe. Eventually. Meanwhile, other users might be able to chime in and help you too!
+
+# Credits
+
+I'd just joined the [RimWorld Discord](https://discord.gg/UTaMDWc) and they have been an incredibly supportive bunch!
+
+I posted the idea to the mod-ideas channel, and @lost_RD and @spdskatr immediately chimed in with the key concept that accomplished most of the work.
+
+From there out, it was just cleanup and polish! We went from concept to working prototype in under 24 hours!
+
+This was also my first foray into using Harmony, and so another shoutout to @Brrainz for making that possible!
