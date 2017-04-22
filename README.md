@@ -2,9 +2,9 @@
 
 This is a mod for the game RimWorld by Ludeon Studios.
 
-Replaces the visible label on ranged weapons to display the Accuracy% rather than the Quality.
+Updates the visible labels on weapons to show Accuracy% and DPS.
 
-![AccuraSight Image Preview](./About/Preview.png)
+![1](./About/Previews/1.png)
 
 # Table of Contents
 
@@ -19,7 +19,43 @@ Replaces the visible label on ranged weapons to display the Accuracy% rather tha
 
 You'll add the mod. You'll enable the mod. It just works. If you don't like it, disable the mod.
 
-When enabled, the visible label on ranged weapons will display their Accuracy% (at Medium range) instead of their Quality.
+When enabled, the visible labels on weapons will be replaced or updated.
+
+In the main window, when looking at a weapon on the ground, ranged weapons will instead list their Accuracy%, and melee weapons will list their DPS.
+
+![1](./About/Previews/1.png)
+
+We also insert the Accuracy% or DPS into the full text label, visible anywhere, such as the infobox.
+
+![2](./About/Previews/2.png) ![3](./About/Previews/3.png)
+
+It also means it renders directly onto a pawn's infobox when selected.
+
+![4](./About/Previews/4.png) ![5](./About/Previews/5.png)
+
+This also means, when you sort a Merchant window by Name, all of your melee weapons are sorted by straight DPS.
+
+![6](./About/Previews/6.png)
+
+and all of your ranged weapons are grouped by type, and then sorted by Accuracy%.
+
+![7](./About/Previews/7.png)
+
+This effect also propagates immediately into mods like Moody or Numbers, with the same result.
+
+Moody will now sort your melee pawns by straight weapon DPS.
+
+![9_1](./About/Previews/9_1.png) [9_2](./About/Previews/9_2.png)
+
+and Moody will now sort your ranged weapon pawns by type, then by Accuracy%.
+
+![8_1](./About/Previews/8_1.png) [8_2](./About/Previews/8_2.png)
+
+and Numbers will also behave the same way.
+
+![11_1](./About/Previews/11_1.png) [11_2](./About/Previews/11_2.png)
+
+![10_1](./About/Previews/10_1.png) [10_2](./About/Previews/10_2.png)
 
 # Specific Additional Features
 
