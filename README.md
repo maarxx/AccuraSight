@@ -4,7 +4,7 @@ This is a mod for the game RimWorld by Ludeon Studios.
 
 Replaces the visible label on ranged weapons to display the Accuracy% rather than the Quality.
 
-![alt text](https://raw.githubusercontent.com/maarxx/AccuraSight/blob/master/About/Preview.png "AccuraSight Mod")
+![AccuraSight Image Preview](./About/Preview.png)
 
 # Table of Contents
 
