@@ -51,9 +51,11 @@ and Moody will now sort your ranged weapon pawns by type, then by Accuracy%.
 
 ![8_1](./About/Previews/8_1.png) ![8_2](./About/Previews/8_2.png)
 
-and Numbers will also behave the same way.
+and Numbers will also behave the same way, sorting melee pawns by straight DPS.
 
 ![11_1](./About/Previews/11_1.png) ![11_2](./About/Previews/11_2.png)
+
+and sorting ranged weapon pawns by type, then by Accuracy%.
 
 ![10_1](./About/Previews/10_1.png) ![10_2](./About/Previews/10_2.png)
 
