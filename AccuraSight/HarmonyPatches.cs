@@ -20,6 +20,47 @@ namespace AccuraSight
         }
     }
 
+    class Computations
+    {
+        public static bool shouldTagAccuracy(Thing t)
+        {
+            if (t.def.IsRangedWeapon && t.def.equipmentType == EquipmentType.Primary && t.def.weaponTags != null && t.def.weaponTags.Contains("Gun") && !t.def.thingCategories.Contains(ThingCategoryDef.Named("Grenades")))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool shouldTagDPS(Thing t)
+        {
+            if (t.def.IsMeleeWeapon && t.def.equipmentType == EquipmentType.Primary && t.def.weaponTags != null && t.def.weaponTags.Contains("Melee") && !t.def.Equals(ThingDef.Named("WoodLog")) && !t.def.Equals(ThingDef.Named("Beer")))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static string computeAccuracy(Thing t)
+        {
+            float accuracy = t.GetStatValue(StatDefOf.AccuracyMedium, true);
+            string sAcc = (accuracy * 100f).ToString("F0") + "%";
+            return sAcc;
+        }
+
+        public static string computeDPS(Thing t)
+        {
+            float dps = t.GetStatValue(StatDefOf.MeleeWeapon_DamageAmount, true) / t.GetStatValue(StatDefOf.MeleeWeapon_Cooldown, true);
+            string sDPS = dps.ToString("00.0");
+            return sDPS;
+        }
+    }
+
     [HarmonyPatch(typeof(Thing))]
     [HarmonyPatch("DrawGUIOverlay")]
     class DrawGUIOverlay
@@ -28,18 +69,14 @@ namespace AccuraSight
         {
             if (Find.CameraDriver.CurrentZoom == CameraZoomRange.Closest)
             {
-                if (__instance.def.IsRangedWeapon && !__instance.def.thingCategories.Contains(ThingCategoryDef.Named("Grenades")))
+                if (Computations.shouldTagAccuracy(__instance))
                 {
-                    float accuracy = __instance.GetStatValue(StatDefOf.AccuracyMedium, true);
-                    string sAcc = (accuracy * 100f).ToString("F0") + "%";
-                    GenMapUI.DrawThingLabel(__instance, sAcc);
+                    GenMapUI.DrawThingLabel(__instance, Computations.computeAccuracy(__instance));
                     return false;
                 }
-                else if (__instance.def.IsMeleeWeapon && !__instance.def.Equals(ThingDef.Named("WoodLog")) && !__instance.def.Equals(ThingDef.Named("Beer")))
+                else if (Computations.shouldTagDPS(__instance))
                 {
-                    float dps = __instance.GetStatValue(StatDefOf.MeleeWeapon_DamageAmount, true) / __instance.GetStatValue(StatDefOf.MeleeWeapon_Cooldown, true);
-                    string sDPS = dps.ToString("00.0");
-                    GenMapUI.DrawThingLabel(__instance, sDPS);
+                    GenMapUI.DrawThingLabel(__instance, Computations.computeDPS(__instance));
                     return false;
                 }
             }
@@ -54,16 +91,14 @@ namespace AccuraSight
     {
         static void Postfix(Thing t, ref string __result)
         {
-            if (t.def.IsRangedWeapon && !t.def.thingCategories.Contains(ThingCategoryDef.Named("Grenades")))
+            if (Computations.shouldTagAccuracy(t))
             {
-                float accuracy = t.GetStatValue(StatDefOf.AccuracyMedium, true);
-                string sAcc = (accuracy * 100f).ToString("F0") + "%";
+                string sAcc = Computations.computeAccuracy(t);
                 __result = __result.Insert(__result.IndexOf("("), "(ACC:" + sAcc + ") ");
             }
-            else if (t.def.IsMeleeWeapon && !t.def.Equals(ThingDef.Named("WoodLog")) && !t.def.Equals(ThingDef.Named("Beer")))
+            else if (Computations.shouldTagDPS(t))
             {
-                float dps = t.GetStatValue(StatDefOf.MeleeWeapon_DamageAmount, true) / t.GetStatValue(StatDefOf.MeleeWeapon_Cooldown, true);
-                string sDPS = dps.ToString("00.0");
+                string sDPS = Computations.computeDPS(t);
                 __result = __result.Insert(0, "(DPS:" + sDPS + ") ");
             }
         }
