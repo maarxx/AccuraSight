@@ -24,7 +24,7 @@ namespace AccuraSight
     {
         public static bool shouldTagAccuracy(Thing t)
         {
-            if (t.def.IsRangedWeapon && t.def.equipmentType == EquipmentType.Primary && t.def.weaponTags != null && t.def.weaponTags.Contains("Gun") && !t.def.thingCategories.Contains(ThingCategoryDef.Named("Grenades")))
+            if (t.def.IsRangedWeapon && t.def.equipmentType == EquipmentType.Primary && !t.def.thingCategories.Contains(ThingCategoryDef.Named("Grenades")))
             {
                 return true;
             }
@@ -36,7 +36,7 @@ namespace AccuraSight
 
         public static bool shouldTagDPS(Thing t)
         {
-            if (t.def.IsMeleeWeapon && t.def.equipmentType == EquipmentType.Primary && t.def.weaponTags != null && t.def.weaponTags.Contains("Melee") && !t.def.Equals(ThingDef.Named("WoodLog")) && !t.def.Equals(ThingDef.Named("Beer")))
+            if (t.def.IsMeleeWeapon && t.def.equipmentType == EquipmentType.Primary && !t.def.Equals(ThingDef.Named("WoodLog")) && !t.def.Equals(ThingDef.Named("Beer")))
             {
                 return true;
             }
@@ -55,7 +55,7 @@ namespace AccuraSight
 
         public static string computeDPS(Thing t)
         {
-            float dps = t.GetStatValue(StatDefOf.MeleeWeapon_DamageAmount, true) / t.GetStatValue(StatDefOf.MeleeWeapon_Cooldown, true);
+            float dps = t.GetStatValue(StatDefOf.MeleeWeapon_AverageDPS, true);
             string sDPS = dps.ToString("00.0");
             return sDPS;
         }
