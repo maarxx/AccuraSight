@@ -84,13 +84,13 @@ namespace AccuraSight
         }
     }
 
-    [HarmonyPatch(typeof(GenLabel))]
-    [HarmonyPatch("ThingLabel")]
-    [HarmonyPatch(new Type[] { typeof(Thing) })]
+    [HarmonyPatch(typeof(Thing))]
+    [HarmonyPatch("Label", MethodType.Getter)]
     class ThingLabel
     {
-        static void Postfix(Thing t, ref string __result)
+        static void Postfix(Thing __instance, ref string __result)
         {
+            Thing t = __instance;
             if (Computations.shouldTagAccuracy(t))
             {
                 string sAcc = Computations.computeAccuracy(t);
