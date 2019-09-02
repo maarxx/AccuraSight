@@ -24,7 +24,7 @@ namespace AccuraSight
     {
         public static bool shouldTagAccuracy(Thing t)
         {
-            if (t.def.IsRangedWeapon && t.def.equipmentType == EquipmentType.Primary && !t.def.thingCategories.Contains(ThingCategoryDef.Named("Grenades")))
+            if (t.def.IsRangedWeapon && t.def.equipmentType == EquipmentType.Primary && t.TryGetQuality(out _))
             {
                 return true;
             }
@@ -36,7 +36,7 @@ namespace AccuraSight
 
         public static bool shouldTagDPS(Thing t)
         {
-            if (t.def.IsMeleeWeapon && t.def.equipmentType == EquipmentType.Primary && !t.def.Equals(ThingDef.Named("WoodLog")) && !t.def.Equals(ThingDef.Named("Beer")))
+            if (t.def.IsMeleeWeapon && t.def.equipmentType == EquipmentType.Primary && t.TryGetQuality(out _))
             {
                 return true;
             }
