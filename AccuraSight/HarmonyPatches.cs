@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace AccuraSight
     {
         static Main()
         {
-            var harmony = HarmonyInstance.Create("com.github.harmony.rimworld.maarx.accurasight");
+            var harmony = new Harmony("com.github.harmony.rimworld.maarx.accurasight");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
