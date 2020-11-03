@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace AccuraSight
     {
         static Main()
         {
-            var harmony = HarmonyInstance.Create("com.github.harmony.rimworld.maarx.accurasight");
+            var harmony = new Harmony("com.github.harmony.rimworld.maarx.accurasight");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
@@ -24,7 +24,7 @@ namespace AccuraSight
     {
         public static bool shouldTagAccuracy(Thing t)
         {
-            if (t.def.IsRangedWeapon && t.def.equipmentType == EquipmentType.Primary && t.def.weaponTags != null && t.def.weaponTags.Contains("Gun") && !t.def.thingCategories.Contains(ThingCategoryDef.Named("Grenades")))
+            if (t.def.IsRangedWeapon && t.def.equipmentType == EquipmentType.Primary && t.TryGetQuality(out _))
             {
                 return true;
             }
@@ -36,7 +36,7 @@ namespace AccuraSight
 
         public static bool shouldTagDPS(Thing t)
         {
-            if (t.def.IsMeleeWeapon && t.def.equipmentType == EquipmentType.Primary && t.def.weaponTags != null && t.def.weaponTags.Contains("Melee") && !t.def.Equals(ThingDef.Named("WoodLog")) && !t.def.Equals(ThingDef.Named("Beer")))
+            if (t.def.IsMeleeWeapon && t.def.equipmentType == EquipmentType.Primary && t.TryGetQuality(out _))
             {
                 return true;
             }
@@ -55,7 +55,7 @@ namespace AccuraSight
 
         public static string computeDPS(Thing t)
         {
-            float dps = t.GetStatValue(StatDefOf.MeleeWeapon_DamageAmount, true) / t.GetStatValue(StatDefOf.MeleeWeapon_Cooldown, true);
+            float dps = t.GetStatValue(StatDefOf.MeleeWeapon_AverageDPS, true);
             string sDPS = dps.ToString("00.0");
             return sDPS;
         }
@@ -84,13 +84,35 @@ namespace AccuraSight
         }
     }
 
-    [HarmonyPatch(typeof(GenLabel))]
-    [HarmonyPatch("ThingLabel")]
-    [HarmonyPatch(new Type[] { typeof(Thing) })]
+    [HarmonyPatch(typeof(Thing))]
+    [HarmonyPatch("Label", MethodType.Getter)]
     class ThingLabel
     {
-        static void Postfix(Thing t, ref string __result)
+        static void Postfix(Thing __instance, ref string __result)
         {
+            Thing t = __instance;
+            if (Computations.shouldTagAccuracy(t))
+            {
+                string sAcc = Computations.computeAccuracy(t);
+                __result = __result.Insert(__result.IndexOf("("), "(ACC:" + sAcc + ") ");
+            }
+            else if (Computations.shouldTagDPS(t))
+            {
+                string sDPS = Computations.computeDPS(t);
+                __result = __result.Insert(0, "(DPS:" + sDPS + ") ");
+            }
+        }
+    }
+
+    //[HarmonyPatch(typeof(Transferable), "LabelCap", new Type[0])]
+
+    [HarmonyPatch(typeof(Transferable))]
+    [HarmonyPatch("LabelCap", MethodType.Getter)]
+    static class Patch_Transferable_LabelCap
+    {
+        static void Postfix(ref string __result, Transferable __instance)
+        {
+            Thing t = (Thing)__instance.AnyThing;
             if (Computations.shouldTagAccuracy(t))
             {
                 string sAcc = Computations.computeAccuracy(t);
