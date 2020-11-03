@@ -103,4 +103,26 @@ namespace AccuraSight
             }
         }
     }
+
+    //[HarmonyPatch(typeof(Transferable), "LabelCap", new Type[0])]
+
+    [HarmonyPatch(typeof(Transferable))]
+    [HarmonyPatch("LabelCap", MethodType.Getter)]
+    static class Patch_Transferable_LabelCap
+    {
+        static void Postfix(ref string __result, Transferable __instance)
+        {
+            Thing t = (Thing)__instance.AnyThing;
+            if (Computations.shouldTagAccuracy(t))
+            {
+                string sAcc = Computations.computeAccuracy(t);
+                __result = __result.Insert(__result.IndexOf("("), "(ACC:" + sAcc + ") ");
+            }
+            else if (Computations.shouldTagDPS(t))
+            {
+                string sDPS = Computations.computeDPS(t);
+                __result = __result.Insert(0, "(DPS:" + sDPS + ") ");
+            }
+        }
+    }
 }
