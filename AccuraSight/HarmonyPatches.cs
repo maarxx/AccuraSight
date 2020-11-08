@@ -112,6 +112,10 @@ namespace AccuraSight
     {
         static void Postfix(ref string __result, Transferable __instance)
         {
+            if (__instance.AnyThing is null)
+            {
+                return;
+            }
             Thing t = (Thing)__instance.AnyThing;
             if (Computations.shouldTagAccuracy(t))
             {
