@@ -36,7 +36,10 @@ namespace AccuraSight
 
         public static bool shouldTagDPS(Thing t)
         {
-            if (t.def.IsMeleeWeapon && t.def.equipmentType == EquipmentType.Primary && t.TryGetQuality(out _))
+            // We use TryGetQuality to filter out crap like Beer Bottles and Wood, which can be used as melee weapons.
+            // Why Clubs specifically don't have Quality is beyond me.
+            // TODO: Find a better filtering mechanism.
+            if (t.def.IsMeleeWeapon && t.def.equipmentType == EquipmentType.Primary && (t.TryGetQuality(out _) || t.def.defName == "MeleeWeapon_Club"))
             {
                 return true;
             }
@@ -101,6 +104,19 @@ namespace AccuraSight
                 string sDPS = Computations.computeDPS(t);
                 __result = __result.Insert(0, "(DPS:" + sDPS + ") ");
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(TransferableComparer_Name))]
+    [HarmonyPatch("Compare")]
+    class TransferableLabel
+    {
+        // We can't Prefix Transferable.Label because it doesn't have a body.
+        // Rather than use a Transpiler, we just Prefix the TransferableComparer to use LabelCap instead of Label.
+        static bool Prefix(Transferable lhs, Transferable rhs, ref int __result)
+        {
+            __result = lhs.LabelCap.CompareTo(rhs.LabelCap);
+            return false;
         }
     }
 
