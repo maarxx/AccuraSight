@@ -6,6 +6,8 @@ Updates the labels on weapons to show Accuracy% for ranged weapons and DPS for m
 
 Enhances sorting options in Merchant windows, and in mods like Moody and Numbers.
 
+We're on Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=2324527774
+
 <img src=/About/Previews/1.png width=49% /> <img src=/About/Previews/4.png width=49% />
 
 # Table of Contents
