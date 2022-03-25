@@ -5,11 +5,6 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccuraSight", "AccuraSight\AccuraSight.csproj", "{CF1D373B-EA91-43F2-BC1E-7346E9D97147}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80EC3CB3-178B-4C53-87B6-CA05EBC72F78}"
-	ProjectSection(SolutionItems) = preProject
-		About\About.xml = About\About.xml
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
